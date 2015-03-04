@@ -23,7 +23,7 @@ def construct_sines(n):
     y = np.zeros(len(x))
     for i in range(n):
         y += np.sin(2 * i * x)
-    y = np.array(y) / max(y)    
+    y = np.array(y) / max(y)
     return x, y
 
 
@@ -49,40 +49,33 @@ def plot_function(x, y, title=None, filename=None):
     plt.show()
 
 
-def main(options): 
+def main(options):
     """
         Main function to handle the input arguments and do the work
     """
 
-    
     if options.filename is not None:
-        # get directory and check if empty string        
-        directory = os.path.dirname(options.filename)        
+        # get directory and check if empty string
+        directory = os.path.dirname(options.filename)
         if directory != "" and not os.path.exist(directory):
             raise ValueError
-            
-            
-    x,y = construct_sines(options.n)
-    
-    plot_function(x,y, filename=options.filename)
-        
 
+    x, y = construct_sines(options.N)
 
-    
-    pass
+    plot_function(x, y, filename=options.filename)
+
 
 if __name__ == '__main__':
-    # Script arguments go here
     import argparse
-    
+
     parser = argparse.ArgumentParser()
     parser.add_argument('-N', action='store', dest='N',
-                    help='Store number of sines', type = int, required = True)  
+                        help='Store number of sines', type=int, required=True)
     parser.add_argument('--title', action='store', dest='title',
-                    help='Store the tile')  
+                        help='Store the tile')
     parser.add_argument('--file', action='store', dest='filename',
-                    help='Store the file')
-    
+                        help='Store the file')
+
     options = parser.parse_args()
 
     main(options)
