@@ -6,16 +6,22 @@
     will be rendered to the local matplotlib backend as well as optionally
     saved to a file, as determined by another input argument.
 """
-
+import numpy as np
 
 def construct_sines(n):
     """
         Construct the x axis and the sines depending on the
-        integer numner provided.
+        integer number provided.
 
         Returns x, y numpy 1D arrays
     """
-    pass
+    x = np.linspace(0,2*np.pi,100)
+    y = np.zeros(len(x))    
+    for i in range(n):
+        y += np.sin(2*i*x)
+    y = np.array(y)/max(y)    
+    return x,y
+
 
 
 def plot_function(x, y, title=None,filename=None):
