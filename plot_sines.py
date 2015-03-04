@@ -34,16 +34,17 @@ def plot_function(x, y, title=None, filename=None):
         If optional keyword argument filename is provided, save
         the figure there
     """
+    plt.plot(x, y, '-r')
 
     if title is None:
         plt.title('Plot of X and Y')
     else:
-        plt.title(str(title))
+        plt.title(title)
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.xticks
 
-    if not filename:
+    if filename is not None:
         plt.savefig(filename)
 
     plt.show()
@@ -62,7 +63,8 @@ def main(options):
 
     x, y = construct_sines(options.N)
 
-    plot_function(x, y, filename=options.filename)
+    plot_function(x, y, filename=options.filename,
+                  title=options.title)
 
 
 if __name__ == '__main__':
@@ -77,5 +79,5 @@ if __name__ == '__main__':
                         help='Store the file')
 
     options = parser.parse_args()
-
+    print options
     main(options)
