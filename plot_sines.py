@@ -58,6 +58,16 @@ def main(options):
 
 if __name__ == '__main__':
     # Script arguments go here
-    options = None
+    import argparse
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-N', action='store', dest='N',
+                    help='Store number of sines', type = int, required = True)  
+    parser.add_argument('--title', action='store', dest='title',
+                    help='Store the tile')  
+    parser.add_argument('--file', action='store', dest='filename',
+                    help='Store the file')
+    
+    options = parser.parse_args()
 
     main(options)
