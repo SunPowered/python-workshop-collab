@@ -39,9 +39,6 @@ def plot_function(x, y, title=None,filename=None):
     
     plt.show()
     
-    #---------TO SAVE PLOT--------------------
-    #plot_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'plots'))
-    #plot_name = os.path.join(plot_dir, "plot.png")
     if title == None:    
         plt.savefig('default.png')
     else:
