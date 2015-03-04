@@ -7,6 +7,8 @@
     saved to a file, as determined by another input argument.
 """
 import numpy as np
+from matplotlib import pyplot as plt
+
 
 def construct_sines(n):
     """
@@ -15,42 +17,34 @@ def construct_sines(n):
 
         Returns x, y numpy 1D arrays
     """
-    x = np.linspace(0,2*np.pi,100)
-    y = np.zeros(len(x))    
+    x = np.linspace(0, 2 * np.pi, 100)
+    y = np.zeros(len(x))
     for i in range(n):
-        y += np.sin(2*i*x)
-    y = np.array(y)/max(y)    
-    return x,y
+        y += np.sin(2 * i * x)
+    y = np.array(y) / max(y)    
+    return x, y
 
 
-
-def plot_function(x, y, title=None,filename=None):
+def plot_function(x, y, title=None, filename=None):
     """
         Plot the function based on the numpy arrays provided.
 
         If optional keyword argument filename is provided, save
         the figure there
-    """   
-    from matplotlib import pyplot as plt
-    print
-    print "Plot 1"
-    
-    if title == None:
+    """
+
+    if title is None:
         plt.title('Plot of X and Y')
     else:
         plt.title(str(title))
     plt.xlabel('X')
     plt.ylabel('Y')
     plt.xticks
-    
+
+    if not filename:
+        plt.savefig(filename)
+
     plt.show()
-    
-    if title == None:    
-        plt.savefig('default.png')
-    else:
-        plt.savefig(str(filename))
-    
-    pass
 
 
 def main(options):
