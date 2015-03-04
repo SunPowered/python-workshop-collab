@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import os
+
 """
     This script will plot a variable number of sine waves of increasingly
     doubled frequency as determined by input script arguments.  The plot
@@ -47,10 +49,26 @@ def plot_function(x, y, title=None, filename=None):
     plt.show()
 
 
-def main(options):
+def main(options): 
     """
         Main function to handle the input arguments and do the work
     """
+
+    
+    if options.filename is not None:
+        # get directory and check if empty string        
+        directory = os.path.dirname(options.filename)        
+        if directory != "" and not os.path.exist(directory):
+            raise ValueError
+            
+            
+    x,y = construct_sines(options.n)
+    
+    plot_function(x,y, filename=options.filename)
+        
+
+
+    
     pass
 
 if __name__ == '__main__':
