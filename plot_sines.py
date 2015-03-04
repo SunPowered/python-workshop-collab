@@ -18,13 +18,35 @@ def construct_sines(n):
     pass
 
 
-def plot_function(x, y, filename=None):
+def plot_function(x, y, title=None,filename=None):
     """
         Plot the function based on the numpy arrays provided.
 
         If optional keyword argument filename is provided, save
         the figure there
-    """
+    """   
+    from matplotlib import pyplot as plt
+    print
+    print "Plot 1"
+    
+    if title == None:
+        plt.title('Plot of X and Y')
+    else:
+        plt.title(str(title))
+    plt.xlabel('X')
+    plt.ylabel('Y')
+    plt.xticks
+    
+    plt.show()
+    
+    #---------TO SAVE PLOT--------------------
+    #plot_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), os.pardir, 'plots'))
+    #plot_name = os.path.join(plot_dir, "plot.png")
+    if title == None:    
+        plt.savefig('default.png')
+    else:
+        plt.savefig(str(filename))
+    
     pass
 
 
