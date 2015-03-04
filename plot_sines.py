@@ -29,6 +29,7 @@ def plot_function(x, y, title=None,filename=None):
     print
     print "Plot 1"
     
+    plt.plot(x, y)
     if title == None:
         plt.title('Plot of X and Y')
     else:
